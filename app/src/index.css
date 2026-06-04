@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-royal-blue: #1e40af;
+  --color-sky-blue: #0284c7;
+  --color-gray-bg: #f8fafc;
+  --color-gray-border: #e2e8f0;
+  --color-red-news: #dc2626;
+  --color-text-dark: #111827;
+  --color-text-muted: #4b5563;
+  --color-white: #ffffff;
+
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-gray-bg);
+  color: var(--color-text-dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-editorial {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* Custom premium scrollbar - classic gray */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gray-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-royal-blue);
+}
+
+/* Ticker text scroller animation */
+@keyframes ticker-slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.ticker-wrap {
+  overflow: hidden;
+  background-color: var(--color-red-news);
+  color: #fff;
+  padding: 8px 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 50%;
+  animation: ticker-slide 25s linear infinite;
+}
+
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* News Header Border Band */
+.news-header-band {
+  background-color: var(--color-royal-blue);
+  height: 4px;
+  width: 100%;
+}
+
+/* Editorial Newspaper Grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* Clean Editorial Card */
+.news-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* News Input Control */
+.input-news {
+  width: 100%;
+  border: 1px solid var(--color-gray-border);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+  outline: none;
+  border-radius: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.input-news:focus {
+  border-color: var(--color-royal-blue);
+}
+
+/* News Buttons */
+.btn-news {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-news:hover {
+  background-color: #1d3557;
+}
+
+.btn-news-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-royal-blue);
+  color: var(--color-royal-blue);
+}
+
+.btn-news-outline:hover {
+  background-color: rgba(30, 64, 175, 0.05);
+}
+
+/* Separator lines like paper */
+.paper-divider {
+  border-top: 1px solid var(--color-gray-border);
+  margin: 16px 0;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* BLYP Footer Credit */
+.footer-dev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+.footer-logo {
+  height: 24px;
+  width: auto;
+}
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.footer-logo-link:hover {
+  transform: scale(1.15) rotate(3deg);
+}
+
